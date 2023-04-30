@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity2"
+    >
+
+    <Button
+        android:id="@+id/btnNieten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nieten"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp" />
+
+    <Button
+        android:id="@+id/btnSchweißen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Schweißen"
+        android:layout_below="@id/btnNieten"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnSchrauben"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Schrauben"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnSchweißen"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnKleben"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kleben"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnSchrauben"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnBolzen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bolzen"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnKleben"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnAugen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Augen"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnBolzen"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnFedern"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Federn"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnAugen"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnWellen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wellen"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnFedern"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnWelleNabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welle/Nabe"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnWellen"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnWlager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wälzlager"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnWelleNabe"
+        android:layout_marginTop="10dp"/>
+</RelativeLayout>
