@@ -50,52 +50,57 @@
             android:backgroundTint="#424242"
             android:orientation="vertical" >
 
-
             <CheckBox
                 android:id="@+id/checkB1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Zug" />
+                android:layout_marginStart="20dp"
+                android:text="@string/zug" />
 
             <CheckBox
                 android:id="@+id/checkB2"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:text="Biegung" />
 
             <CheckBox
                 android:id="@+id/checkB3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:text="Schub" />
 
+            <EditText
+                android:id="@+id/a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nahtbreite a"
+                android:inputType="numberDecimal" />
             <EditText
                 android:id="@+id/laenge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Nahtbreite a"
-                android:inputType="text" />
-            <EditText
-                android:id="@+id/breite"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 android:hint="Nahtlänge l"
                 />
             <EditText
-                android:id="@+id/nahtlaenge"
+                android:id="@+id/bauteildicke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 android:hint="Bauteildicke"
                 />
+            <CheckBox
+                android:id="@+id/checkB4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="mit Vorsatzblechen geschweißt?" />
+
 
         </LinearLayout>
     </ScrollView>

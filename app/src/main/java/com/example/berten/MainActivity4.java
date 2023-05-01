@@ -10,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.CompoundButton;
 
 
 public class MainActivity4 extends AppCompatActivity implements View.OnClickListener{
@@ -20,6 +22,13 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
     public static final double PI = 3.141592653589793;
     private Button start;
     private Button popup;
+    private double vorsatz = 0;
+    private double flaeche = 0;
+    private double spannung = 0;
+    private double faktor = 0;
+    private double laenge = 0;
+    private double a = 0;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -30,8 +39,19 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         start = findViewById(R.id.btnStart);
         start.setOnClickListener(this);
 
-        popup = findViewById(R.id.btnPopup);
-        popup.setOnClickListener(this);
+        CheckBox cb1 = (CheckBox) findViewById(R.id.checkB4);
+
+        cb1.setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
+                        vorsatz = 1;
+                    }
+                }
+        );
+
+        //popup = findViewById(R.id.btnPopup);
+        //popup.setOnClickListener(this);
 
     }
 
@@ -39,15 +59,25 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btnStart) {
-            startR();
+            startCalc();
         }
-        if (v.getId() == R.id.btnPopup) {
+        /*if (v.getId() == R.id.btnPopup) {
             onButtonShowPopupWindowClick(v);
-        }
+        }*/
     }
 
-    public void startR(){
-        EditText b = ;
+    public void startCalc(){
+        EditText edita = (EditText) findViewById(R.id.a);
+        EditText editlaenge = (EditText) findViewById(R.id.laenge);
+        a = Double.parseDouble(edita.getText().toString());;
+        laenge = Double.parseDouble(editlaenge.getText().toString());;
+
+        if(vorsatz==0) {
+            laenge = laenge - 2 * a;
+        }
+        flaeche = a * laenge;
+        View v = findViewById(R.id.btnStart);
+        onButtonShowPopupWindowClick(v);
     }
 
     public double wArea(double a, double b, double t, int v){
