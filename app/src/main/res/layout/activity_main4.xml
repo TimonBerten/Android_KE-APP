@@ -71,6 +71,13 @@
                 android:layout_marginStart="20dp"
                 android:text="Schub" />
 
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Durchgeschweißte Naht"
+                android:layout_marginStart="20dp"/>
+
             <EditText
                 android:id="@+id/a"
                 android:layout_width="match_parent"

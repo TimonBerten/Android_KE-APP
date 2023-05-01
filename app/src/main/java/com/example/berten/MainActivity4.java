@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.CompoundButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity4 extends AppCompatActivity implements View.OnClickListener{
@@ -23,7 +25,10 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
     private Button start;
     private Button popup;
     private double vorsatz = 0;
-    private double flaeche = 0;
+    private int zug = 0;
+    private int schub = 0;
+    private int biegung = 0;
+    public double flaeche = 0;
     private double spannung = 0;
     private double faktor = 0;
     private double laenge = 0;
@@ -40,6 +45,9 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         start.setOnClickListener(this);
 
         CheckBox cb1 = (CheckBox) findViewById(R.id.checkB4);
+        CheckBox cb2 = (CheckBox) findViewById(R.id.checkB1);
+        CheckBox cb3 = (CheckBox) findViewById(R.id.checkB2);
+        CheckBox cb4 = (CheckBox) findViewById(R.id.checkB3);
 
         cb1.setOnCheckedChangeListener(
                 new CompoundButton.OnCheckedChangeListener() {
@@ -49,7 +57,30 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                     }
                 }
         );
-
+        cb2.setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
+                        zug=1;
+                    }
+                }
+        );
+        cb3.setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
+                        schub=1;
+                    }
+                }
+        );
+        cb4.setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
+                        biegung=1;
+                    }
+                }
+        );
         //popup = findViewById(R.id.btnPopup);
         //popup.setOnClickListener(this);
 
@@ -76,8 +107,13 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
             laenge = laenge - 2 * a;
         }
         flaeche = a * laenge;
-        View v = findViewById(R.id.btnStart);
-        onButtonShowPopupWindowClick(v);
+
+        Toast.makeText(getApplicationContext(), Double.toString(flaeche)+" mm^2", Toast.LENGTH_LONG).show();
+
+
+
+
+        //onButtonShowPopupWindowClick(findViewById(R.id.btnStart));
     }
 
     public double wArea(double a, double b, double t, int v){
@@ -102,7 +138,15 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
     public double compare(double real, double zul){
         return (zul/real);
     }
+    public double zugspannung(){
 
+    }
+    public double schubspannung(){
+
+    }
+    public double biegespannung(){
+
+    }
 
 
 
@@ -113,6 +157,8 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                 getSystemService(LAYOUT_INFLATER_SERVICE);
         View popupView = inflater.inflate(R.layout.popup_ergebnis, null);
 
+        //TextView popupText = (TextView) findViewById(R.id.popupText);
+        //popupText.setText("");
         // create the popup window
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
@@ -122,6 +168,8 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         // show the popup window
         // which view you pass in doesn't matter, it is only used for the window tolken
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+
 
         // dismiss the popup window when touched
         popupView.setOnTouchListener(new View.OnTouchListener() {
