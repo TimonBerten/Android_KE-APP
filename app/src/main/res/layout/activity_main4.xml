@@ -39,21 +39,64 @@
         android:backgroundTint="#777676"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="1dp">
+        tools:layout_editor_absoluteX="0dp"
+        android:layout_marginHorizontal="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#424242"
-
-
             android:orientation="vertical" >
 
-            <Button
-                android:id="@+id/btnPopup"
+
+            <CheckBox
+                android:id="@+id/checkB1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DIE" />
+                android:layout_marginLeft="20dp"
+                android:text="Zug" />
+
+            <CheckBox
+                android:id="@+id/checkB2"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Biegung" />
+
+            <CheckBox
+                android:id="@+id/checkB3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Schub" />
+
+            <EditText
+                android:id="@+id/laenge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nahtbreite a"
+                android:inputType="text" />
+            <EditText
+                android:id="@+id/breite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Nahtlänge l"
+                />
+            <EditText
+                android:id="@+id/nahtlaenge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Bauteildicke"
+                />
+
         </LinearLayout>
     </ScrollView>
 

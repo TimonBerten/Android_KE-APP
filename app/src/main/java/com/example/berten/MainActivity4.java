@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
@@ -46,7 +47,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
     }
 
     public void startR(){
-
+        EditText b = ;
     }
 
     public double wArea(double a, double b, double t, int v){
