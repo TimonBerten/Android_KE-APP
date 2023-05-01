@@ -139,13 +139,13 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         return (zul/real);
     }
     public double zugspannung(){
-
+        return 0;
     }
     public double schubspannung(){
-
+        return 0;
     }
     public double biegespannung(){
-
+        return 0;
     }
 
 

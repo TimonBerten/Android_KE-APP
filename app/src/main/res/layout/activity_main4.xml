@@ -36,6 +36,7 @@
         android:layout_width="409dp"
         android:layout_height="665dp"
         android:layout_marginTop="100dp"
+        android:layout_marginStart="0dp"
         android:backgroundTint="#777676"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -107,6 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="mit Vorsatzblechen geschweißt?" />
+
 
 
         </LinearLayout>
