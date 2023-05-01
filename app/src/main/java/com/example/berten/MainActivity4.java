@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,16 +26,22 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
     public static final double PI = 3.141592653589793;
     private Button start;
     private Button popup;
+
     private double vorsatz = 0;
     private int zug = 0;
     private int schub = 0;
     private int biegung = 0;
+    private int biegungsart = 0;
+
+    private int nahtmodus = 0;
     public double flaeche = 0;
     private double spannung = 0;
     private double faktor = 0;
+    private double biegemoment;
     private double laenge = 0;
     private double a = 0;
 
+    private double fl=0;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -44,10 +52,14 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         start = findViewById(R.id.btnStart);
         start.setOnClickListener(this);
 
+
+        onRadioButtonClicked(this.getCurrentFocus());
+
         CheckBox cb1 = (CheckBox) findViewById(R.id.checkB4);
         CheckBox cb2 = (CheckBox) findViewById(R.id.checkB1);
         CheckBox cb3 = (CheckBox) findViewById(R.id.checkB2);
         CheckBox cb4 = (CheckBox) findViewById(R.id.checkB3);
+        Switch sw2 = (Switch) findViewById(R.id.switch2);
 
         cb1.setOnCheckedChangeListener(
                 new CompoundButton.OnCheckedChangeListener() {
@@ -55,32 +67,34 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                     public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
                         vorsatz = 1;
                     }
-                }
-        );
+                });
         cb2.setOnCheckedChangeListener(
                 new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
                         zug=1;
                     }
-                }
-        );
+                });
         cb3.setOnCheckedChangeListener(
                 new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
                         schub=1;
                     }
-                }
-        );
+                });
         cb4.setOnCheckedChangeListener(
                 new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
                         biegung=1;
                     }
-                }
-        );
+                });
+        sw2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                biegungsart = 1;
+            }
+        });
+
         //popup = findViewById(R.id.btnPopup);
         //popup.setOnClickListener(this);
 
@@ -100,8 +114,12 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
     public void startCalc(){
         EditText edita = (EditText) findViewById(R.id.a);
         EditText editlaenge = (EditText) findViewById(R.id.laenge);
-        a = Double.parseDouble(edita.getText().toString());;
-        laenge = Double.parseDouble(editlaenge.getText().toString());;
+        EditText editmoment = (EditText) findViewById(R.id.moment);
+        a = Double.parseDouble(edita.getText().toString());
+        laenge = Double.parseDouble(editlaenge.getText().toString());
+        biegemoment = Double.parseDouble(editmoment.getText().toString());
+
+
 
         if(vorsatz==0) {
             laenge = laenge - 2 * a;
@@ -144,11 +162,39 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
     public double schubspannung(){
         return 0;
     }
-    public double biegespannung(){
+
+    public double biegespannung() {
+        if (biegungsart == 0) {
+            fl = laenge * Math.pow(a, 2);
+        } else {
+            fl = a * Math.pow(laenge, 2);
+        }
+        double wMoment = (6 * biegemoment) / (fl);
+
+
         return 0;
     }
 
 
+
+
+    public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+        switch(view.getId()) {
+            case R.id.radioBtn1:
+                if (checked)
+                    nahtmodus = 1;
+                    break;
+            case R.id.radioBtn2:
+                if (checked)
+                    nahtmodus = 2;
+                    break;
+            case R.id.radioBtn3:
+                if (checked)
+                    nahtmodus = 3;
+                    break;
+        }
+    }
 
     public void onButtonShowPopupWindowClick(View view) {
 

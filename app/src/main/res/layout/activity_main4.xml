@@ -72,12 +72,30 @@
                 android:layout_marginStart="20dp"
                 android:text="Schub" />
 
-            <Switch
-                android:id="@+id/switch1"
-                android:layout_width="wrap_content"
+            <RadioGroup
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Durchgeschweißte Naht"
-                android:layout_marginStart="20dp"/>
+                android:orientation="horizontal"
+                android:layout_marginStart="20dp">
+                <RadioButton
+                    android:id="@+id/radioBtn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="durchgeschw."
+                    android:onClick="onRadioButtonClicked"/>
+                <RadioButton
+                    android:id="@+id/radioBtn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="nicht durchgeschw."
+                    android:onClick="onRadioButtonClicked"/>
+                <RadioButton
+                    android:id="@+id/radioBtn3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rundnaht"
+                    android:onClick="onRadioButtonClicked"/>
+            </RadioGroup>
 
             <EditText
                 android:id="@+id/a"
@@ -100,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="numberDecimal"
-                android:hint="Bauteildicke"
+                android:hint="Bauteildicke d"
                 />
             <CheckBox
                 android:id="@+id/checkB4"
@@ -109,6 +127,20 @@
                 android:layout_marginLeft="20dp"
                 android:text="mit Vorsatzblechen geschweißt?" />
 
+            <EditText
+                android:id="@+id/moment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:hint="Biegemoment Mb"
+                />
+            <Switch
+                android:id="@+id/switch2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Moment parallel/senkrecht"
+                android:layout_marginStart="20dp"/>
 
 
         </LinearLayout>
